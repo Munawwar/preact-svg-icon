@@ -1,0 +1,10 @@
+node_modules
+*.log
+.DS_Store
+coverage
+dist/
+
+# Example files
+example/bundle.js
+example/bundle.min.js
+example/bundle.min.js.gz

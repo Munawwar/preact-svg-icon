@@ -1,0 +1,1 @@
+person.svg was taken from https://github.com/material-icons/material-icons and id="id" was manually added to the svg element.
