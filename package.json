@@ -1,6 +1,6 @@
 {
   "name": "preact-svg-icon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a preact icon component from an SVG fragment URL",
   "main": "dist/cjs/toSvgIcon.js",
   "module": "dist/esm/toSvgIcon.js",

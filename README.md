@@ -1,4 +1,4 @@
-# preact-svg-icons
+# preact-svg-icon
 
 A Light-weight Preact SVG icon wrapper
 
