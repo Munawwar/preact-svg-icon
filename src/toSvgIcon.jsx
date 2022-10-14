@@ -1,5 +1,5 @@
 /**
- * Returns a Component that loosely follows MUI v5's interface
+ * Returns a Component that loosely follows React MUI v5's interface
  * @param {string} svgUrl SVG url
  * @param {string} [fragmentId='id'] Fragment ID to reference within the .svg file.
  */

@@ -58,7 +58,7 @@ const applySVGAttributes = (() => {
 
 if (!process.argv[2]) {
   console.error(
-    "You didn't specify a directory. node clean-svgs.js path/to/folder"
+    "You didn't specify a directory. node add-svg-id.js path/to/folder"
   );
   exit();
 }

@@ -1,10 +1,12 @@
 # preact-svg-icons
 
+A Light-weight Preact SVG icon wrapper
+
 ## Usage
 
 PersonIcon.jsx
 ```js
-import toSvgIcon from 'preact-svg-icons';
+import toSvgIcon from 'preact-svg-icon';
 // provide a SVG file and fragment id to use as icon
 export default toSvgIcon('/person.svg', 'fragment-id');
 ```
@@ -29,7 +31,7 @@ function MyPage() {
 
 Many SVG icon solutions converts SVGs to JSX when creating their icon components.
 
-1. This means the entire SVG is now inside your javascript file. JS gets larger, and as the larger your JS gets the slower it gets to parse and execute. If the SVG were to be loaded by browser directly then that would be more ideal.
+1. This means the entire SVG is now inside your javascript file. JS gets larger, and as the larger your JS gets the slower it gets to parse and execute. If the SVG were to be already in the HTML or downloaded by browser then that would be more ideal.
 
 2. The icons are potentially repeated across JS bundles (e.g. if code splitting is used). It would be nicer if browser could cache the SVGs across pages like how regular images can be cached.
 
@@ -49,7 +51,7 @@ This helps us in the following ways:
 2. The SVG files could be cached by browser now across pages.
 3. SVGs that are already in the HTML page need not be loaded fetched from server (by skipping the url part and keeping only the fragment part - `<use href="#id">`). This solves for preloading icons that are the top of your page that you want to load immediately and not wanting a flash of blank space first.
 
-If you have many icons to add fragment ids to, then this repo provides a node.js script inside `scripts/` directory to add an `id` to a directory full of svg files.
+If you have many icons to add fragment ids to, then this repo provides a node.js script inside `scripts/` directory to add an `id` to a directory full of svg files. Note: It will also remove fill attribute from `<svg>` element
 
 ```sh
 node scripts/add-svg-id.js myicon.svg

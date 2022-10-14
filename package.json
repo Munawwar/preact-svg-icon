@@ -4,6 +4,7 @@
   "description": "Create a preact icon component from an SVG fragment URL",
   "main": "dist/cjs/toSvgIcon.js",
   "module": "dist/esm/toSvgIcon.js",
+  "bin": "scripts/cli",
   "scripts": {
     "build": "rm -fr dist && mkdir -p dist/esm && mkdir -p dist/cjs && esbuild src/toSvgIcon.jsx --bundle --external:preact --outdir=dist/esm/ --format=esm --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && esbuild src/toSvgIcon.jsx --bundle --external:preact --outdir=dist/cjs/ --format=cjs --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && cp src/toSvgIcon.d.ts dist/cjs/ && cp src/toSvgIcon.d.ts dist/esm/",
     "example:build": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic",
