@@ -2,6 +2,10 @@
 
 A Light-weight Preact SVG icon wrapper
 
+```sh
+npm add preact-svg-icon
+```
+
 ## Usage
 
 PersonIcon.jsx
