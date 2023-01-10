@@ -27,6 +27,15 @@ function MyPage() {
 }
 ```
 
+## Run demo
+
+```sh
+npm ci
+npm start
+# Watch changes on a new terminal
+npm run example:watch
+```
+
 ## Problem statement
 
 Many SVG icon solutions converts SVGs to JSX when creating their icon components.
