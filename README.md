@@ -69,6 +69,7 @@ This helps us in the following ways:
        <path d="M502.3 ..."></path>
      </symbol>
      <symbol id="icon2" ...>
+       ...
      </symbol>
    </svg>
    ```
