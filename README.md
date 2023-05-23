@@ -62,7 +62,16 @@ This helps us in the following ways:
 
 1. Very less SVG remains in the JS bundle. Also when page code splitting is used, only the base component used to generate the `<use>` tag is bundled across pages. Which is extremely small.
 2. The SVG files could be cached by browser now across pages.
-3. SVGs that are already in the HTML page need not be loaded fetched from server (by skipping the url part and keeping only the fragment part - `<use href="#id">`). This solves for preloading icons that are the top of your page that you want to load immediately and not wanting a flash of blank space first.
+3. HTML generated is also small. However this can cause a flash of blank space on SVGs on the immediately visible area of a page on a page load. But you could selectively preload some SVGs via link tag rel="preload" or by having some of the SVGs sprited in the HTML itself (when referencing them you can skip the URL part and keep only the fragment part - `<use href="#id">`). SVG sprite example:
+   ```html
+   <svg width="0" height="0" style="display: none">
+     <symbol id="icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+       <path d="M502.3 ..."></path>
+     </symbol>
+     <symbol id="icon2" ...>
+     </symbol>
+   </svg>
+   ```
 
 If you have many icons to add fragment ids to, then this repo provides a node.js script inside `scripts/` directory to add an `id` to a directory full of svg files. Note: It will also remove fill attribute from `<svg>` element
 
