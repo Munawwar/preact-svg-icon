@@ -44,7 +44,7 @@ npm run example:watch
 
 Many SVG icon solutions converts SVGs to JSX when creating their icon components.
 
-1. This means the entire SVG is now inside your javascript file. JS gets larger, and as the larger your JS gets the slower it gets to parse and execute. If the SVG were to be already in the HTML or downloaded by browser then that would be more ideal.
+1. This means the entire SVG is now inside your javascript file. This increases the parse and execute time. If the SVG were to be already in the HTML or downloaded by browser (like an image) then that would be more ideal.
 
 2. The icons are potentially repeated across JS bundles (e.g. if code splitting is used). It would be nicer if browser could cache the SVGs across pages like how regular images can be cached.
 
@@ -60,9 +60,9 @@ There are couple of solutions to this. One such solution that allows browsers to
 
 This helps us in the following ways:
 
-1. Very less SVG remains in the JS bundle. Also when page code splitting is used, only the base component used to generate the `<use>` tag is bundled across pages. Which is extremely small.
-2. The SVG files could be cached by browser now across pages.
-3. HTML generated is also small. However this can cause a flash of blank space on SVGs on the immediately visible area of a page on a page load. But you could selectively preload some SVGs via link tag rel="preload" or by having some of the SVGs sprited in the HTML itself (when referencing them you can skip the URL part and keep only the fragment part - `<use href="#id">`). SVG sprite example:
+1. **Less JS**: Very less SVG remains in the JS bundle. Also when page code splitting is used, only the base component used to generate the `<use>` tag is bundled across pages; which is extremely small.
+2. **Cacheable**: The SVG files could be cached by browser now across pages (using Cache-Control HTTP headers, just like images, css or js files).
+3. **Preloadable**: To avoid a "flash of blank space" on SVGs on the immediately visible area of a page on a page load, you could selectively preload some SVGs via link tag `rel="preload"` or by having some of the SVGs sprited in the HTML itself (when referencing them you can skip the URL part and keep only the fragment part - `<use href="#id">`). SVG sprite example:
    ```html
    <svg width="0" height="0" style="display: none">
      <symbol id="icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -71,6 +71,11 @@ This helps us in the following ways:
      <symbol id="icon2" ...>
        ...
      </symbol>
+   </svg>
+
+   <!-- Usage: How to use an SVG already in HTML -->
+   <svg>
+      <use href="#icon1">
    </svg>
    ```
 

@@ -1,19 +1,29 @@
 {
   "name": "preact-svg-icon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create a preact icon component from an SVG fragment URL",
-  "main": "dist/cjs/toSvgIcon.js",
-  "module": "dist/esm/toSvgIcon.js",
+  "type": "module",
+  "main": "./dist/toSvgIcon.cjs",
+  "module": "./dist/toSvgIcon.js",
+  "types": "./dist/toSvgIcon.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/toSvgIcon.cjs",
+      "import": "./dist/toSvgIcon.js",
+      "types": "./dist/toSvgIcon.d.ts",
+      "default": "./dist/toSvgIcon.js"
+    }
+  },
   "bin": "scripts/cli",
   "scripts": {
-    "build": "rm -fr dist && mkdir -p dist/esm && mkdir -p dist/cjs && esbuild src/toSvgIcon.jsx --bundle --external:preact --outdir=dist/esm/ --format=esm --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && esbuild src/toSvgIcon.jsx --bundle --external:preact --outdir=dist/cjs/ --format=cjs --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && cp src/toSvgIcon.d.ts dist/cjs/ && cp src/toSvgIcon.d.ts dist/esm/",
+    "build": "rm -fr dist && esbuild src/toSvgIcon.jsx --bundle --external:preact --outdir=dist/ --format=esm --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic && esbuild src/toSvgIcon.jsx --bundle --external:preact --outdir=dist/ --format=cjs --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic --out-extension:.js=.cjs && cp src/toSvgIcon.d.ts dist/",
     "example:build": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic",
     "example:watch": "esbuild example/main.jsx --outfile=example/bundle.js --bundle --jsx-factory=h --jsx-fragment=Fragment --jsx-import-source=preact --jsx=automatic --watch",
     "start": "npm run example:build && browser-sync start --server --port 3001 --serveStatic=example/ --files './example/bundle.js'"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/Munawwar/preact-svg-icon"
+    "url": "git://github.com/Munawwar/preact-svg-icon.git"
   },
   "keywords": [
     "preact",
