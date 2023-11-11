@@ -61,8 +61,9 @@ There are couple of solutions to this. One such solution that allows browsers to
 This helps us in the following ways:
 
 1. **Less JS**: Very less SVG remains in the JS bundle. Also when page code splitting is used, only the base component used to generate the `<use>` tag is bundled across pages; which is extremely small.
-2. **Cacheable**: The SVG files could be cached by browser now across pages (using Cache-Control HTTP headers, just like images, css or js files).
-3. **Preloadable**: To avoid a "flash of blank space" on SVGs on the immediately visible area of a page on a page load, you could selectively preload some SVGs via link tag `rel="preload"` or by having some of the SVGs sprited in the HTML itself (when referencing them you can skip the URL part and keep only the fragment part - `<use href="#id">`). SVG sprite example:
+2. **Styleable**: Mostly styleable (*waves hand in the air*). It respects css `fill` color. By default if you set `fill="currentColor"` on the SVG, then it will inherit the text color from parent. It can't do advanced styling, animations etc like an inline SVG. But for most icons, this is an acceptable trade-off. There are [advanced progressive enhanced ways](https://css-tricks.com/inline-svg-cached/) of converting the tag into inline SVG via JS, but I will not dvelve into thtat here.
+3. **Cacheable**: The SVG files could be cached by browser now across pages (using Cache-Control HTTP headers, just like images, css or js files).
+4. **Preloadable**: To avoid a "flash of blank space" on SVGs on the immediately visible area of a page on a page load, you could selectively preload some SVGs via link tag `rel="preload"` or by having some of the SVGs sprited in the HTML itself (when referencing them you can skip the URL part and keep only the fragment part - `<use href="#id">`). SVG sprite example:
    ```html
    <svg width="0" height="0" style="display: none">
      <symbol id="icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
