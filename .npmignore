@@ -3,4 +3,4 @@ src
 LICENSE
 package-lock.json
 playground
-scripts
+utils

@@ -80,12 +80,12 @@ This helps us in the following ways:
    </svg>
    ```
 
-If you have many icons to add fragment ids to, then this repo provides a node.js script inside `scripts/` directory to add an `id` to a directory full of svg files. Note: It will also remove fill attribute from `<svg>` element
+If you have many icons to add fragment ids to, then this repo provides a node.js script inside `utils/` directory to add an `id` to a directory full of svg files. Note: It will also remove fill attribute from `<svg>` element
 
 ```sh
-node scripts/add-svg-id.js myicon.svg
+node utils/add-svg-id.js myicon.svg
 # or full directory
-# node scripts/add-svg-id.js .
+# node utils/add-svg-id.js .
 ```
 
 ## References
