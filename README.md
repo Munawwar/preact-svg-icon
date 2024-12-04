@@ -44,7 +44,7 @@ npm run example:watch
 
 Many SVG icon solutions converts SVGs to JSX when creating their icon components.
 
-1. This means the entire SVG is now inside your javascript file. This increases the parse and execute time of your JS. It would have been better, if the SVG were not in the JS and were already in the HTML or downloaded by browser (like an image).
+1. This means the SVGs are now inside your javascript file. This increases the parse and execute time of your JS. It would have been better, if the SVGs were not in the JS and were already in the HTML or downloaded by browser (like an image).
 
 2. The icons are potentially repeated across JS bundles / pages (e.g. if code splitting is used). It would be nicer if browser could cache the SVGs across pages like how regular images can be cached.
 
